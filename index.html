@@ -14,62 +14,53 @@
   <body>
     <header class="header">
       <div class="header-logo-wrapper">
-        <button class="header-menu-burger button-informal" type="button"></button>
+        <button class="header-menu-burger" type="button"></button>
         <a href="/" class="header-logo">
-          <picture>
-            <source srcset="./icons/logo.avif" type="image/avif" />
-            <source srcset="./icons/logo.webp" type="image/webp" />
-            <img class="header-logo-image" src="./icons/logo.png" alt="Логотип trlm.ru" width="80" height="88" />
-          </picture>
+          <img class="header-logo-image" src="./icons/logo.png" alt="Логотип trlm.ru" width="80" height="88" />
         </a>
         <a href="/" class="header-logo-replacement">trim.ru</a>
       </div>
-      <div class="header-2-container">
-        <details class="office-dropdown">
-          <summary>Малиновского</summary>
-          <ul class="office-list">
-            <li><a href="#">Офис 2</a></li>
-            <li><a href="#">Офис 3</a></li>
-          </ul>
-        </details>
-        <button class="catalogue-button button" type="button">Каталог</button>
+      <details class="office-dropdown">
+        <summary>Малиновского</summary>
+        <ul class="office-list">
+          <li><a href="#">Офис 2</a></li>
+          <li><a href="#">Офис 3</a></li>
+        </ul>
+      </details>
+      <button class="catalogue-button button" type="button">Каталог</button>
+      <a href="tel:88005501980" class="header-contact-number">8-800-550-19-80</a>
+      <nav class="header-menu">
+        <ul class="header-menu-list">
+          <li class="header-menu-item selecting-spares-li">
+            <a href="/" class="header-menu-link selecting-spares is-current">Подбор запчастей</a>
+          </li>
+          <li class="header-menu-item delivery-li">
+            <a href="/" class="header-menu-link delivery">Доставка</a>
+          </li>
+          <li class="header-menu-item how-to-buy-li">
+            <a href="/" class="header-menu-link how-to-buy">Как купить</a>
+          </li>
+          <li class="header-menu-item payment-li">
+            <a href="/" class="header-menu-link payment">Оплата</a>
+          </li>
+          <li class="header-menu-item discounts-li">
+            <a href="/" class="header-menu-link discounts">Акции</a>
+          </li>
+          <li class="header-menu-item contacts-li">
+            <a href="/" class="header-menu-link contacts">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="header-actions-item button-informal header-sign-in-button" type="button">Войти</button>
+        <button class="header-actions-item button-informal header-cart-button" type="button">Корзина</button>
       </div>
-      <div class="header-3-container">
-        <a href="tel:88005501980" class="header-contact-number">8-800-550-19-80</a>
-        <nav class="header-menu">
-          <ul class="header-menu-list">
-            <li class="header-menu-item selecting-spares-li">
-              <a href="/" class="header-menu-link selecting-spares is-current">Подбор запчастей</a>
-            </li>
-            <li class="header-menu-item delivery-li">
-              <a href="/" class="header-menu-link delivery">Доставка</a>
-            </li>
-            <li class="header-menu-item how-to-buy-li">
-              <a href="/" class="header-menu-link how-to-buy">Как купить</a>
-            </li>
-            <li class="header-menu-item payment-li">
-              <a href="/" class="header-menu-link payment">Оплата</a>
-            </li>
-            <li class="header-menu-item discounts-li">
-              <a href="/" class="header-menu-link discounts">Акции</a>
-            </li>
-            <li class="header-menu-item contacts-li">
-              <a href="/" class="header-menu-link contacts">Контакты</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="header-actions">
-          <button class="header-actions-item button-informal header-sign-in-button" type="button">Войти</button>
-          <button class="header-actions-item button-informal header-cart-button" type="button">Корзина</button>
-        </div>
-        <div class="break"></div>
-        <search class="search-container">
-          <form class="search-form" action="/" method="GET">
-            <input class="search-input" type="search" name="q" placeholder="Что ищите?" aria-label="Строка поиска" />
-            <button title="Искать" type="submit" class="search-submit button-informal"></button>
-          </form>
-        </search>
-      </div>
+      <search class="search-container">
+        <form class="search-form" action="/" method="GET">
+          <input class="search-input" type="search" name="q" placeholder="Что ищите?" aria-label="Строка поиска" />
+          <button title="Искать" type="button" class="search-button button-informal"></button>
+        </form>
+      </search>
     </header>
   </body>
 </html>
