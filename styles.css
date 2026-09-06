@@ -24,6 +24,14 @@
 
 @font-face {
   font-family: 'Gotham Pro';
+  src: url('./fonts/GothamPro-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham Pro';
   src: url('./fonts/GothamPro-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
@@ -212,6 +220,8 @@ svg * {
   transition-property: fill, stroke;
 }
 
+svg path {transition: fill 0.06s ease;}
+
 /**
   Приведение рамок таблиц в классический 'collapse' вид
  */
@@ -237,15 +247,16 @@ svg * {
 }
 
 :root {
-  --color-dark: #222222;
-  --color-light: #FFFFFF;
+  --color-dark: #222;
+  --color-light: #FFF;
   --color-bg: #f0f0f0;
-  --color-gray: #777777;
-  --color-light-gray: #BBBBBB;
-  --color-9: #999999;
-  --color-dd: #DDDDDD;
+  --color-gray: #777;
+  --color-light-gray: #BBB;
+  --color-9: #999;
+  --color-dd: #DDD;
   --color-whatsapp: #3CA255;
   --color-blue: #1C69D4;
+  --color-red: #F40;
 
   --border-radius: 4px;
 
@@ -260,6 +271,12 @@ svg * {
   --transition-duration: 0.2s;
 
   --header-height: 140px;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+  
 }
 
 .visually-hidden {
@@ -329,12 +346,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-.h.free {
-  font-size: 25px;
+.h-free {
+  font-size: 24px;
   line-height: 1;
 }
 
-.h.offer {
+.h-offer {
   font-size: 30px;
   line-height: 1.2;
 }
@@ -423,13 +440,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-logo-replacement {
   display: none;
-}
-
-.header-2-container {
-  display: flex;
-  flex-direction: column;
-  row-gap: 18px;
-  width: 220px;
 }
 
 .office-dropdown summary {
@@ -548,11 +558,6 @@ h1, h2, h3, h4, h5, h6 {
   background: url('./icons/cart.svg') center/contain no-repeat;
 }
 
-.break {
-  flex-basis: 100%;
-  height: 0;
-}
-
 .search-container {
   flex-grow: 1;
   width: 100%;
@@ -594,6 +599,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .search-button:hover {
   opacity: 0.7;
+  background-color: var(--color-light);
 }
 
 .search-button::before {
@@ -605,6 +611,231 @@ h1, h2, h3, h4, h5, h6 {
   background: url('./icons/Search.svg') center/contain no-repeat;
 }
 
+.main-page {
+  padding: 40px 50px 0;
+}
+
+.main-page-banner {
+  position: relative;
+}
+
+.banner-background {
+  position: absolute;
+  z-index: -100;
+}
+
+.banner-image {
+  width: 100%;
+  max-width: 1820px;
+  height: 539px;
+  
+  object-fit: cover;
+}
+
+.banner-offer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 299px;
+}
+
+.banner-offer-container-left {
+  padding-block: 40px;
+}
+
+.banner-offer-title {
+  font-size: 42px;
+  line-height: 1.17;
+  color: var(--color-light);
+  margin-block: 35px 30px;
+}
+
+.banner-offer__see-more {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-right: 55px;
+}
+
+.banner-offer__see-more::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 39px;
+  height: 22px;
+  background: url('./icons/arrow-hor.svg') center/contain no-repeat;
+}
+
+.banner-offer-container-right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  row-gap: 67px;
+}
+
+.pagination-controls {
+  display: flex; 
+  height: 80px;
+}
+
+.page-button {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  margin: 0;
+  background-color: rgba( 255, 255, 255, 0.2);
+
+}
+
+.page-button::after {
+  content: '';
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 34px;
+  height: 24px;
+  
+  background: url('./icons/pagination-arrow.svg') center/contain no-repeat;                  
+}
+
+.previous::after {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.banner-product-name {
+  font-size: 75px;
+  color: var(--color-light);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, min-content);
+  gap: 28px 30px;
+}
+
+.free {
+  background-color: var(--color-light);
+  display: flex;
+  flex-direction: row;
+  padding: 32px 20px;
+  column-gap: 9px;
+  grid-column: span 2;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.free-number {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.2;
+}
+
+.free-contents {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.free-contact-number {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.whatsapp {
+  border-color: var(--color-whatsapp);
+  color: var(--color-whatsapp);
+  column-gap: 8px;
+}
+
+.whatsapp:hover {
+  background-color: var(--color-whatsapp);
+}
+
+.whatsapp:hover {
+  fill: var(--color-light);
+}
+
+.whatsapp::after {
+  content: '+7 (928) 107-80-80';
+}
+
+.offer {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  color: var(--color-light);
+  height: 356px;
+}
+
+.offer-small {
+  grid-column: span 2;
+  background: url('./images/offers/small-offer-bg.jpg') center/cover no-repeat;
+}
+
+.offer-small .h-offer {
+  max-width: 180px;
+}
+
+.offer-big {
+  grid-column: span 4;
+  background: url('./images/offers/big-offer-bg.jpg') center/cover no-repeat;
+}
+
+.offer-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.offer-see-more {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: var(--color-light);
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.offer-see-more:hover {
+  color: var(--color-dark);
+}
+
+.offer-see-more::after {
+  content: '';
+  width: 107px;
+  height: 2px;
+  background-color: var(--color-light);
+}
+
+.offer-see-more:hover::after {
+  background-color: var(--color-dark);
+}
+
+.low-cost {
+  display: flex;
+  width: 164px;
+  height: 50px;
+  background-color: var(--color-red);
+  font-size: 15px;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+}
+
+
 @media (max-width: 1599px) {
 
   .office-dropdown summary::before {
@@ -613,6 +844,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .discounts-li {
     display: none;
+  }
+
+  .main-page {
+    padding: 30px 30px 10px;
   }
 }
 
@@ -625,6 +860,14 @@ h1, h2, h3, h4, h5, h6 {
   .header {
     padding-inline: 30px;
     column-gap: 30px;
+  }
+  
+  .free-number {
+    display: none;
+  }
+
+  .offer-small .h-offer {
+    font-size: 20px;
   }
 }
 
@@ -643,11 +886,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 11px;
   }
 
-  .header-2-container {
-    flex-shrink: 0;
-    width: 190px;
-  }
-
   .header-menu {
     justify-self: center;
     align-self: end;
@@ -656,6 +894,81 @@ h1, h2, h3, h4, h5, h6 {
   .discounts-li,
   .how-to-buy-li {
     display: list-item;
+  }
+  
+  .main-page {
+    padding: 20px 20px 0;
+  }
+  
+  .container {
+    padding-inline: 20px;
+  }
+  
+  .banner-product-name {
+    display: none;
+  }
+
+  .offers-grid {
+    gap: 20px;
+  }
+
+  .free {
+    padding-block: 20px;
+  }
+
+  .whatsapp::after {
+    content: 'WhatsApp';
+  }
+
+  .offer {
+    height: 252px;
+    grid-column: span 3;
+    padding-block: 30px;
+  }
+  
+  .h-offer {
+    font-size: 23px;
+  }
+
+  .offer-small {
+    background-image: url('./images/offers/960-small-offer-bg.jpg');
+  }
+
+  .offer-big {
+    background-image: url('./images/offers/960-big-offer-bg.jpg');
+  }
+
+  .low-cost {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .offers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, min-content);
+  }
+
+  .free-contents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .free-contents *:not(:last-child) {
+    grid-column: 1;
+  }
+
+  .whatsapp {
+    grid-column: 2;
+    grid-row: 2 / 4;
+  }
+
+  .free-contact-number {
+    line-height: 1;
+  }
+
+  .offer {
+    grid-column: span 1;
   }
 }
 
@@ -737,6 +1050,11 @@ h1, h2, h3, h4, h5, h6 {
     align-self: center;
     justify-self: end;
   }
+
+  .main-page {
+    padding: 0;
+  }
+
 }
 
 @media (max-width: 569px) {
@@ -795,5 +1113,32 @@ h1, h2, h3, h4, h5, h6 {
 
   .header-cart-button::before {
     left: 4px;
+  }
+
+  .container {
+    padding-inline: 10px;
+  }
+
+  .pagination-controls {
+    position: absolute;
+    right: 0;
+  }
+
+  .offers-grid {
+    gap: 10px;
+  }
+
+  .banner-offer-title {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+
+  .free-contents {
+    display: flex;
+  }
+
+  .offer {
+    grid-column: span 2;
+    padding-inline: 20px;
   }
 }
