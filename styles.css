@@ -382,6 +382,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 300;
   display: grid;
   grid-template-columns: max-content fit-content(220px) max-content auto auto max-content;
   grid-template-rows: 1fr 1fr;
@@ -1055,6 +1058,11 @@ h1, h2, h3, h4, h5, h6 {
   .footer-soc1als {
     margin-block: 19px 14px;
   }
+
+  
+  .soc1als-link {
+    background-color: var(--color-bg);
+  }
 }
 
 @media (max-width: 899px) {
@@ -1099,28 +1107,34 @@ h1, h2, h3, h4, h5, h6 {
       "logo office office . actions actions"
       "catalogue catalogue search search search contact";
     height: 130px;
-    position: relative;
     padding: 20px 20px 10px;
     column-gap: 16px;
+    background-color: var(--color-bg);
   }
 
-  .header::after {
+  .header::before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 70px;
-    bottom: 0;
+    height: 61px;
+    top: 0;
     left: 0;
-    background-color: var(--color-bg);
-    border-top: 1px solid var(--color-dd);
-    z-index: 100;
+    background-color: var(--color-light);
+    border-bottom: 1px solid var(--color-dd);
+    z-index: 400;
+    
+  }
+
+  .header-logo-wrapper,
+  .office-dropdown,
+  .header-actions {
+    z-index: 500;
   }
 
   .catalogue-button,
   .search-container,
-  .header-contact-number,
-  .office-dropdown {
-    z-index: 200;
+  .header-contact-number {
+    z-index: 100;
   }
 
   .header-logo-wrapper {
@@ -1142,6 +1156,96 @@ h1, h2, h3, h4, h5, h6 {
 
   .header-menu-burger:hover {
     opacity: 0.7;
+  }
+
+  .header-logo-wrapper:has(.mobile-menu[open]) .header-logo-replacement {
+    color: var(--color-9);
+  }
+
+  .mobile-menu {
+    position: static;
+    /* keep it out of the flex flow's positioning context */
+  }
+
+  .mobile-menu>summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .mobile-menu>summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Overlay is hidden until [open] */
+  .mobile-menu-overlay {
+    display: none;
+  }
+
+  .mobile-menu[open] .mobile-menu-overlay {
+    display: block;
+    position: fixed;
+    top: 61px;
+    /* matches mobile .header height */
+    left: 0;
+    width: 100%;
+    height: calc(100dvh - 61px);
+    background-color: rgba(0, 0, 0, 0.45);
+    /* dims the page underneath */
+    z-index: 350;
+  }
+
+  .mobile-menu[open] .header-menu-burger {
+    background-image: url('./icons/Close.svg');
+  }
+
+  /* The actual white panel — doesn't fill the overlay, so dimmed page shows below it */
+  .mobile-menu-content {
+    background-color: var(--color-light);
+    max-height: 510px;
+    overflow-y: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .mobile-menu-contact {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .mobile-menu-list {
+    flex-direction: column;
+    font-size: 15px;
+  }
+
+  .header-menu-link,
+  .mobile-menu-contact {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-right: 43px;
+    column-gap: 19px;
+    height: 73px;
+    padding-inline: 42px 26px;
+    border-bottom: 1px solid var(--color-dd);
+  }
+
+  .header-menu-link::after {
+    content: '';
+    height: 14px;
+    aspect-ratio: 1;
+    background: url('./icons/menu-arrow.svg') center/contain no-repeat;
+  }
+
+  .header-menu-link:not(.is-current)::after {
+    opacity: 0.5;
+  }
+
+  .mobile-menu-contact::after {
+    content: '';
+    height: 19px;
+    aspect-ratio: 1;
+    background: url('./icons/Phone.svg') center/contain no-repeat;
   }
 
   .header-logo {
@@ -1180,13 +1284,13 @@ h1, h2, h3, h4, h5, h6 {
       "office contact contact"
       "catalogue catalogue catalogue";
     height: 166px;
-    position: relative;
     padding: 20px 10px 12px;
     column-gap: 0;
   }
 
-  .header::after {
-    height: 106px;
+  .header-menu-link,
+  .mobile-menu-contact {
+    justify-content: space-between;
   }
 
   .office-dropdown {
@@ -1202,6 +1306,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-self: end;
     flex-grow: 0;
     width: 18px;
+    z-index: 500;
   }
 
   .search-input {
@@ -1227,6 +1332,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .header-cart-button::before {
     left: 4px;
+  }
+
+  .office-dropdown {
+    z-index: 200;
   }
 
   .container {

@@ -14,7 +14,26 @@
   <body>
     <header class="header">
       <div class="header-logo-wrapper">
-        <button class="header-menu-burger" type="button"></button>
+        <details class="mobile-menu">
+          <summary class="header-menu-burger" aria-label="Меню"></summary>
+
+          <div class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+              <nav class="mobile-menu-nav">
+                <ul class="header-menu-list mobile-menu-list">
+                  <li class="header-menu-item"><a href="/" class="header-menu-link is-current">Подбор запчастей</a></li>
+                  <li class="header-menu-item"><a href="/" class="header-menu-link">Доставка</a></li>
+                  <li class="header-menu-item"><a href="/" class="header-menu-link">Как купить</a></li>
+                  <li class="header-menu-item"><a href="/" class="header-menu-link">Оплата</a></li>
+                  <li class="header-menu-item"><a href="/" class="header-menu-link">Акции</a></li>
+                  <li class="header-menu-item"><a href="/" class="header-menu-link">Контакты</a></li>
+                </ul>
+              </nav>
+
+              <a href="tel:88005501980" class="mobile-menu-contact">8-800-550-19-80</a>
+            </div>
+          </div>
+        </details>
         <a href="/" class="header-logo">
           <img class="header-logo-image" src="./icons/logo.png" alt="Логотип trlm.ru" width="80" height="88" />
         </a>
