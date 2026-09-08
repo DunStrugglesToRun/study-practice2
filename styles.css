@@ -595,6 +595,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: 50%;
   left: 20px;
+  width: 18px;
+  aspect-ratio: 1;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -608,9 +610,11 @@ h1, h2, h3, h4, h5, h6 {
 .search-button::before {
   content: '';
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 18px;
   aspect-ratio: 1;
-  left: 1px;
   background: url('./icons/Search.svg') center/contain no-repeat;
 }
 
@@ -1315,7 +1319,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     transform: none;
   }
-
+  
   .header-actions-item {
     font-size: 0;
     padding-right: 0;
