@@ -1164,7 +1164,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .mobile-menu {
     position: static;
-    /* keep it out of the flex flow's positioning context */
   }
 
   .mobile-menu>summary {
@@ -1176,7 +1175,6 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 
-  /* Overlay is hidden until [open] */
   .mobile-menu-overlay {
     display: none;
   }
@@ -1185,12 +1183,10 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     position: fixed;
     top: 61px;
-    /* matches mobile .header height */
     left: 0;
     width: 100%;
     height: calc(100dvh - 61px);
     background-color: rgba(0, 0, 0, 0.45);
-    /* dims the page underneath */
     z-index: 350;
   }
 
@@ -1198,7 +1194,6 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('./icons/Close.svg');
   }
 
-  /* The actual white panel — doesn't fill the overlay, so dimmed page shows below it */
   .mobile-menu-content {
     background-color: var(--color-light);
     max-height: 510px;
